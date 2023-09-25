@@ -7,7 +7,11 @@ public class ConverteDados implements ItfcConverteDados {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Override
-    public <T> T ObterDados(String json, Class<T> classe) throws JsonProcessingException {
-        return mapper.readValue(json, classe);
+    public <T> T ObterDados(String json, Class<T> classe) {
+        try {
+            return mapper.readValue(json, classe);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
