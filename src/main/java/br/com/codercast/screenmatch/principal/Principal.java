@@ -62,7 +62,7 @@ public class Principal {
 
         LocalDate dataBusca  = LocalDate.of(ano, 1, 1);
 
-        DateTimeFormatter formatadorDataBR = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+        DateTimeFormatter formatadorDataBR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         episodios.stream()
                 .filter(e -> e.getDataLancamento() != null && e.getDataLancamento().isAfter(dataBusca))
@@ -71,7 +71,5 @@ public class Principal {
                                 " Episódio: " + e.getTitulo() +
                                 " Data lançamento: " + e.getDataLancamento().format(formatadorDataBR)
                 ));
-
     }
 }
-
